@@ -12,7 +12,7 @@ public class UserDBProxy {
     public UserDBProxy() throws ClassNotFoundException, SQLException {
         // Set up a connection and store it in a field
         Class.forName("org.sqlite.JDBC");
-        String url = "jdbc:sqlite:" + db;
+        String url = "jdbc:sqlite:data/blr_users.sqlite3";
         conn = DriverManager.getConnection(url);
         Statement stat = conn.createStatement();
         stat.executeUpdate("PRAGMA foreign_keys = ON;");
