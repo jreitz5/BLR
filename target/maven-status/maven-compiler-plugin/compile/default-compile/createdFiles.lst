@@ -1,0 +1,11 @@
+commands/Command.class
+commands/GetUser.class
+commands/ReviewsByProperty.class
+commands/SubmitReview.class
+commands/ReviewsByLandlord.class
+commands/RegisterUser.class
+main/REPL.class
+commands/ReviewsByDate.class
+commands/ApproveReview.class
+commands/ReviewsByRating.class
+main/Main.class
