@@ -1,0 +1,128 @@
+input[type="number"] {
+  width: 3em;
+}
+code {
+  background: #2db34a;
+  border-radius: 6px;
+  color: black;
+  display: block;
+  font: 14px/24px "Source Code Pro", Inconsolata, "Lucida Console", Terminal, "Courier New", Courier;
+  padding: 24px 15px;
+  text-align: center;
+}
+output {
+  background: orange;
+  border-radius: 6px;
+  color: blue;
+  display: block;
+  font: 14px/24px "Source Code Pro", Inconsolata, "Lucida Console", Terminal, "Courier New", Courier;
+  padding: 24px 15px;
+  text-align: left;
+}
+codeOr {
+  font: 56px/64px "Source Code Pro", Inconsolata, "Lucida Console", Terminal, "Courier New", Courier;
+  padding: 2px 2px;
+  text-align: center;
+}
+codeHead {
+  background: black;
+  border-radius: 6px;
+  color: white;
+  display: block;
+  font: 18px/24px "Source Code Pro", Inconsolata, "Lucida Console", Terminal, "Courier New", Courier;
+  padding: 24px 15px;
+  text-align: center;
+}
+header,
+section,
+aside,
+footer {
+  margin: 0 1.5% 24px 1.5%;
+}
+section {
+  float: left;
+  width: 30%;
+}
+
+sectionOr {
+  float: left;
+  width: 30%
+
+}
+
+input[type="submit"] {
+    width: 200px; 
+    height: 50px; 
+    border: 0;
+    border-radius: 12px;
+    color: white;
+    background-color: black;
+    -webkit-animation: colorchange 3s infinite alternate;
+}
+
+footer {
+  clear: both;
+  margin-bottom: 0;
+}
+body {
+    background-color: green;
+	-webkit-animation: colorchange 8s infinite alternate;
+}
+
+ @-webkit-keyframes colorchange {
+      0% {
+        
+        background-color: teal;
+      }
+      
+      10% {
+
+        background-color: white;
+      }
+      
+      20% {
+        
+        background-color: red;
+      }
+      
+      30% {
+       
+        background-color: fuschia;
+      }
+      
+      40% {
+        
+        background-color: olive;
+      }
+      
+      50% {
+        
+
+        background-color: #48C9B0;
+      }
+      
+      60% {
+        
+        background-color: aqua;
+      }
+      
+      70% {
+
+        background-color: orange;
+      }
+      80% {
+     
+        background-color: yellow;
+      }
+      
+      90% {
+    
+
+        background-color: #DAF7A6;
+      }
+      
+      100% {
+
+        background-color: pink;
+      }
+    }
