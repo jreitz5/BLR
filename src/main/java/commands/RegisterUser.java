@@ -26,6 +26,10 @@ public class RegisterUser implements Command {
 
     public List<String> execute(String input) {
         String[] tokens = input.split(" ");
+        if (tokens.length <= 4) {
+            System.err.println("Error: not enough inputs to register new user");
+            return null;
+        }
         String last_name = tokens[1];
         String first_name = tokens[2];
         int admin = Integer.parseInt(tokens[3]);
