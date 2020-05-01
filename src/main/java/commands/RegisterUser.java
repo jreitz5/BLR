@@ -26,33 +26,35 @@ public class RegisterUser implements Command {
 
     public List<String> execute(String input) {
         String[] tokens = input.split(" ");
-        String name = tokens[1];
-        String email = tokens[2];
+        String last_name = tokens[1];
+        String first_name = tokens[2];
         int admin = Integer.parseInt(tokens[3]);
+        String email = tokens[4];
         String oauth_key = "";
-        if (tokens.length >= 5) {
-            oauth_key = tokens[4];
+        if (tokens.length >= 6) {
+            oauth_key = tokens[5];
         }
         String image_path = "";
-        if (tokens.length >= 6) {
-            image_path = tokens[5];
+        if (tokens.length >= 7) {
+            image_path = tokens[6];
         }
-        return this.register(name, email, admin, oauth_key, image_path);
+        return this.register(last_name, first_name, email, admin, oauth_key, image_path);
     }
 
-    public List<String> register(String name, String email, int admin, String oauth, String img) {
-        String stat = "INSERT INTO users (name, email, admin, oauth_key, image_path) " +
-                "VALUES (?, ?, ?, ?, ?);";
+    public List<String> register(String l_name, String f_name, String email, int admin, String oauth, String img) {
+        String stat = "INSERT INTO users (last_name, first_name, email, admin, oauth_key, image_path) " +
+                "VALUES (?, ?, ?, ?, ?, ?);";
         PreparedStatement prep;
         try {
             // Prepare statement
             prep = this.proxy.getConnection().prepareStatement(stat);
             // Pass in the desired string
-            prep.setString(1, name);
-            prep.setString(2, email);
-            prep.setInt(3, admin);
-            prep.setString(4, oauth);
-            prep.setString(5, img);
+            prep.setString(1, l_name);
+            prep.setString(2, f_name);
+            prep.setString(3, email);
+            prep.setInt(4, admin);
+            prep.setString(5, oauth);
+            prep.setString(6, img);
 
             prep.executeUpdate();
 
