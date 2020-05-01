@@ -1,6 +1,7 @@
 package main;
 
 import commands.Command;
+import database.DBProxy;
 
 import java.io.BufferedReader;
 import java.io.IOException;

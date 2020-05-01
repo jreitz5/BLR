@@ -1,5 +1,7 @@
 package main;
 
+import commands.RegisterUser;
+
 /**
  * The Main class of our project. This is where execution begins.
  *
@@ -27,8 +29,8 @@ public final class Main {
     private void run() {
         REPL repl = new REPL();
 
-        // Register REPL commands here. ie:
-        //repl.registerCommand(new CreateProfile());
+        // Register REPL commands here.
+        repl.registerCommand(new RegisterUser());
 
         repl.runREPL();
     }
