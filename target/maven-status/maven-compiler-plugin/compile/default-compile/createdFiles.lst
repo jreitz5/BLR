@@ -8,6 +8,7 @@ commands\ApproveReview.class
 main\Main.class
 commands\Command.class
 commands\SubmitReview.class
+main\Main$FrontHandler.class
 commands\GetUser.class
 main\REPL.class
 commands\RegisterUser.class
