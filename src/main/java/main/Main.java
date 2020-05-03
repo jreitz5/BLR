@@ -1,6 +1,7 @@
 package main;
 
 
+import commands.GetUser;
 import commands.RegisterUser;
 import java.io.File;
 import java.io.IOException;
@@ -69,6 +70,7 @@ public final class Main {
 
         // Register REPL commands here.
         repl.registerCommand(new RegisterUser());
+        repl.registerCommand(new GetUser());
 
         repl.runREPL();
     }

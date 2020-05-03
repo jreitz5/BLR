@@ -1,7 +1,7 @@
 body {
   height: 100vh;
   width: 100vw;
-  background: url("./images/skyline.png") no-repeat center center fixed;
+  background: url("../images/skyline.png") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
