@@ -1,0 +1,79 @@
+body {
+  height: 100vh;
+  width: 100vw;
+  background: url("../images/skyline.png") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.page-box {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+
+}
+
+.submit-box {
+  background-color: #EBF0EE;
+  height: 62vh;
+  width: 50vw;
+  color:black;
+  font-size:2vw;
+  font-family:Palatino,serif;
+  margin-left: 20vw;
+  margin-right: 20vw;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+}
+
+.box-title {
+  width: 100%;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 5%;
+}
+
+.gray-text {
+  color: grey;
+}
+
+.login-title{
+  margin-left: 3vw;
+}
+
+.login-title-2{
+  margin-left: 5vw;
+  font-size: 3vh;
+}
+
+.login-text {
+  resize: none;
+  width: 90%;
+  height: 20%;
+  resize: none;
+  font-size: 5vh;
+  padding: 1%;
+  margin: 2.5% 5% 0;
+}
+
+.submit-row {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 1.5vw;
+}
+
+.login-button {
+  border-radius: 5px;
+  border-radius: 5px;
+}
