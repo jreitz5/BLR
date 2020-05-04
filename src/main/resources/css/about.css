@@ -1,0 +1,252 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    background: url("../images/skyline.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+  
+  #content-wrapper {
+    margin: auto;
+    background-color: #ffffff;
+    opacity: 90%;
+    width: 85%;
+    height: flex;
+  }
+
+  .box-title {
+    width: 100%;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 2%;
+    color: black;
+    font-family: Palatino,serif;
+    font-size: 2vw;
+
+}
+  
+  #filters-wrapper {
+    height: 400px;
+  }
+  
+  #landlords-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .comment-wrapper {
+    margin-left: 20px;
+  }
+  
+  .landlord {
+    margin-left: 15px;
+    display: flex;
+    flex-direction: row;
+    height: auto;
+    border-bottom: 1px solid #ababab;
+  }
+  
+  .quotation {
+    height: 25px;
+    width: 25px;
+    min-height: 25px;
+    min-width: 25px;
+  }
+  
+  .landlord-content-wrapper {
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .landlord-content-wrapper h4 {
+    color: black;
+    font-family: Palatino,serif;
+    font-size: 2vw;
+  }
+  
+  .landlord-content-wrapper a {
+    color: black;
+    font-size: 1.5vw;
+    font-family: Palatino,serif;
+    text-align: justify;
+  }
+  
+  .landlord-icon {
+    height: 120px;
+    width: 120px;
+    min-height: 120px;
+    min-width: 120px;
+    margin: 1%;
+  }
+  
+  @media (max-width: 1000px) {
+    .landlord-icon {
+      height: 100px;
+      width: 100px;
+      min-height: 100px;
+      min-width: 100px;
+    }
+  
+    .landlord-content-wrapper h4 {
+      font-size: 2.2vw;
+    }
+  
+    .quotation {
+      height: 20px;
+      width: 20px;
+      min-height: 20px;
+      min-width: 20px;
+    }
+  
+    .landlord-content-wrapper a {
+      font-size: 1.6vw;
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .landlord-icon {
+      height: 90px;
+      width: 90px;
+      min-height: 90px;
+      min-width: 90px;
+    }
+  
+    .landlord-content-wrapper h4 {
+      font-size: 2.4vw;
+    }
+  
+    .quotation {
+      height: 18px;
+      width: 18px;
+      min-height: 18px;
+      min-width: 18px;
+    }
+  
+    .landlord-content-wrapper a {
+      font-size: 1.8vw;
+    }
+  }
+  
+  @media (max-width: 800px) {
+    .landlord-icon {
+      height: 80px;
+      width: 80px;
+      min-height: 80px;
+      min-width: 80px;
+    }
+  
+    .landlord-content-wrapper h4 {
+      font-size: 2.6vw;
+    }
+  
+    .quotation {
+      height: 12px;
+      width: 12px;
+      min-height: 12px;
+      min-width: 12px;
+    }
+  
+    .landlord-content-wrapper a {
+      font-size: 2vw;
+    }
+  
+    .comment-wrapper {
+      margin-top: -15px;
+    }
+  }
+  
+  #content {
+  
+  }
+  
+  a {
+    text-decoration: none;
+    color: #4f4f4f;
+  }
+  
+  a:hover {
+    color: #4f4f4f;
+  }
+  
+  .dropdown-label {
+    display: inline-block;
+    position: relative;
+  }
+  
+  .dropdown-btn {
+    display: inline-block;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    padding: 10px 35px 10px 10px;
+    margin: 5px;
+    background-color: #ffffff;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  
+  .dropdown-btn:after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%);
+    width: 0; 
+    height: 0; 
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid black;
+  }
+  
+  .dropdown-btn:hover {
+    background-color: #eeeeee;
+  }
+  
+  .dropdown-input {
+    display: none;
+  }
+  
+  .dropdown-menu {
+    position: absolute;
+    top: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 0;
+    margin: 2px;
+    box-shadow: 0 0 6px 0 rgba(0,0,0,0.1);
+    background-color: #ffffff;
+    list-style-type: none;
+  }
+  
+  .dropdown-input + .dropdown-menu {
+    display: none;
+  } 
+  
+  .dropdown-input:checked + .dropdown-menu {
+    display: block;
+  } 
+  
+  .dropdown-menu li {
+    padding: 10px 20px;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  
+  .dropdown-menu li:hover {
+    background-color: #f6f6f6;
+  }
+  
+  .dropdown-menu li {
+    display: block;
+    margin: 5px 5px 0px 5px;
+    padding: 5px;
+  }
