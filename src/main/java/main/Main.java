@@ -69,8 +69,8 @@ public final class Main {
         REPL repl = new REPL();
 
         // Register REPL commands here.
-        repl.registerCommand(new RegisterUser());
-        repl.registerCommand(new GetUser());
+//        repl.registerCommand(new RegisterUser());
+//        repl.registerCommand(new GetUser());
 
         repl.runREPL();
     }
@@ -99,6 +99,15 @@ public final class Main {
       FreeMarkerEngine freeMarker = createEngine();
 
       Spark.get("/", new FrontHandler(), freeMarker);
+      Spark.get("/home", new FrontHandler(), freeMarker);
+      Spark.get("/about", new AboutHandler(), freeMarker);
+      Spark.get("/feedback", new FeedbackHandler(), freeMarker);
+      Spark.get("/landlord", new LandlordHandler(), freeMarker);
+      Spark.get("/login", new LoginHandler(), freeMarker);
+      Spark.get("/privacy", new PrivacyHandler(), freeMarker);
+      Spark.get("/profile", new ProfileHandler(), freeMarker);
+      Spark.get("/submit_review", new SubmitReviewHandler(), freeMarker);
+      
       
     }
     
@@ -106,12 +115,77 @@ public final class Main {
       @Override
       public ModelAndView handle(Request req, Response res) {
         Map<String, Object> variables = ImmutableMap.of("title",
-            ":D", "message",
-            "Vanilla Reiss");
-        return new ModelAndView(variables, "query.ftl");
+            "Brown Landlord Review", "style", "home.css");
+        return new ModelAndView(variables, "home.ftl");
       }
     }
     
+    private static class AboutHandler implements TemplateViewRoute {
+      @Override
+      public ModelAndView handle(Request req, Response res) {
+        Map<String, Object> variables = ImmutableMap.of("title",
+            "Brown Landlord Review", "style", "about.css");
+        return new ModelAndView(variables, "about.ftl");
+      }
+    }
+    
+    
+    private static class FeedbackHandler implements TemplateViewRoute {
+      @Override
+      public ModelAndView handle(Request req, Response res) {
+        Map<String, Object> variables = ImmutableMap.of("title",
+            "Brown Landlord Review", "style", "feedback.css");
+        return new ModelAndView(variables, "feedback.ftl");
+      }
+    }
+    
+    
+    private static class LandlordHandler implements TemplateViewRoute {
+      @Override
+      public ModelAndView handle(Request req, Response res) {
+        Map<String, Object> variables = ImmutableMap.of("title",
+            "Brown Landlord Review", "style", "landlord.css");
+        return new ModelAndView(variables, "landlord.ftl");
+      }
+    }
+    
+    
+    private static class LoginHandler implements TemplateViewRoute {
+      @Override
+      public ModelAndView handle(Request req, Response res) {
+        Map<String, Object> variables = ImmutableMap.of("title",
+            "Brown Landlord Review", "style", "login.css");
+        return new ModelAndView(variables, "login.ftl");
+      }
+    }
+    
+    
+    private static class PrivacyHandler implements TemplateViewRoute {
+      @Override
+      public ModelAndView handle(Request req, Response res) {
+        Map<String, Object> variables = ImmutableMap.of("title",
+            "Brown Landlord Review", "style", "privacy.css");
+        return new ModelAndView(variables, "privacy.ftl");
+      }
+    }
+
+    private static class ProfileHandler implements TemplateViewRoute {
+      @Override
+      public ModelAndView handle(Request req, Response res) {
+        Map<String, Object> variables = ImmutableMap.of("title",
+            "Brown Landlord Review", "style", "profile.css");
+        return new ModelAndView(variables, "profile.ftl");
+      }
+    }
+    
+    private static class SubmitReviewHandler implements TemplateViewRoute {
+      @Override
+      public ModelAndView handle(Request req, Response res) {
+        Map<String, Object> variables = ImmutableMap.of("title",
+            "Brown Landlord Review", "style", "submit_review.css");
+        return new ModelAndView(variables, "submit_review.ftl");
+      }
+    }
     
     private static class ExceptionPrinter implements ExceptionHandler<Exception> {
       @Override

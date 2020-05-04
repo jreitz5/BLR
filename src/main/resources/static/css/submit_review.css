@@ -1,0 +1,100 @@
+body {
+    height: 100vh;
+    width: 100vw;
+    background: url("../images/skyline.png") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-box {
+    width: 100%;
+}
+
+.submit-box {
+    background-color: #EBF0EE;
+    height: 75vh;
+    width: 60vw;
+    color:black;
+    font-size:2vw;
+    font-family:Palatino,serif;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+}
+
+.box-title {
+    width: 100%;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 5%;
+}
+
+.landlord-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+    margin: 2.5% 5%;
+}
+
+.property-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+    margin: 2.5% 5%;
+}
+
+.star-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+    margin: 2.5% 5%;
+}
+
+.rating {
+    unicode-bidi: bidi-override;
+    direction: rtl;
+}
+.rating > span {
+    display: inline-block;
+    position: relative;
+    width: 1.1em;
+}
+.rating > span:hover:before,
+.rating > span:hover ~ span:before {
+    content: "\2605";
+    position: absolute;
+}
+
+.review-text {
+    resize: none;
+    width: 90%;
+    height: 50%;
+    resize: none;
+    font-size: 2vh;
+    padding: 1%;
+    margin: 2.5% 5% 0;
+}
+
+.submit-row {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    font-size: 1.5vw;
+}
+
+.submit-button {
+    border-radius: 5px;
+    border-radius: 5px;
+}
