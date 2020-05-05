@@ -67,7 +67,8 @@ public final class Main {
         if (options.has("gui")) {
         runSparkServer((int) options.valueOf("port"));
         }
-        GetReviews test = new GetReviews();
+        // For testing
+//        GetReviews test = new GetReviews();
         REPL repl = new REPL();
 
         // Register REPL commands here.
