@@ -1,6 +1,7 @@
 package main;
 
 
+import commands.GetReviews;
 import commands.GetUser;
 import commands.RegisterUser;
 import java.io.File;
@@ -66,6 +67,8 @@ public final class Main {
         if (options.has("gui")) {
         runSparkServer((int) options.valueOf("port"));
         }
+        // For testing
+//        GetReviews test = new GetReviews();
         REPL repl = new REPL();
 
         // Register REPL commands here.
@@ -135,6 +138,7 @@ public final class Main {
       public ModelAndView handle(Request req, Response res) {
         Map<String, Object> variables = ImmutableMap.of("title",
             "Brown Landlord Review", "style", "feedback.css");
+
         return new ModelAndView(variables, "feedback.ftl");
       }
     }
