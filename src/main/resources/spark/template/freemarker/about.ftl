@@ -3,6 +3,7 @@
   <div id="content">
     <div id="landlords-wrapper">
         <div class="box-title">The Team</div>
+        <a href="/privacy" style="margin-left: auto; margin-right: auto;" > Read our Privacy Policy </a>
       <div class="landlord">
         <img src="../images/taylor.jpg" alt="landlord icon" class="landlord-icon">
         <div class="landlord-content-wrapper">
