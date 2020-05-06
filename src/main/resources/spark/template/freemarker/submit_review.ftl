@@ -1,6 +1,6 @@
 <#assign content>
   <div class="page-box">
-    <div class="submit-box">
+    <div class="submit-box" >
       <div class="box-title">
         Leave a Review!
       </div>
@@ -19,7 +19,7 @@
         <div class="property-row">
           Property:
           <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               optional
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">

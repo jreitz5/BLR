@@ -21,16 +21,19 @@
         <form class="form-inline">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="font-size:1.5vw;font-family:Palatino,serif;text-align:center;height:35px;width:120px;border-radius:18px;margin-top:-5px;">
         </form>
-        <a href="/profile">
-          <img src="../images/profile.png" alt="Go to profile." style="width:40px;height:40px;margin:5px;margin-top:10px;">
+        <li>
+          <a href="/profile">
+            <img src="../images/profile.png" alt="Go to profile." style="width:40px;height:40px;margin:5px;margin-top:10px;">
           </a>
+        </li>
       </ul>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
+        <div id="navbarDropdown" class="dropdown-menu dropdown-menu-lg-right" aria-labelledby="navbarDropdown">
           <h6 class="dropdown-header">Dropdown header</h6>
           <a class="dropdown-item" href="#">Action</a>
           <a class="dropdown-item" href="#">Another action</a>
         </div>
+      </div>
 </nav>
