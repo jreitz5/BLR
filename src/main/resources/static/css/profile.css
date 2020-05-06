@@ -11,6 +11,22 @@ body {
     flex-direction: column;
 }
 
+#skip a { 
+    position: absolute; 
+    left: -10000px; 
+    top: auto; 
+    width: 1px; 
+    height: 1px; 
+    overflow: hidden;
+  } 
+   
+  #skip a:focus { 
+    position: static; 
+    width: auto; 
+    height: auto;
+    font-size: 1vw;
+  }
+
 .page-box {
     width: 100%;
 }
@@ -24,15 +40,26 @@ body {
     margin-top: 5%;
 }
 
+#content-wrapper {
+    margin: auto;
+    margin-top: 20px;
+    background-color: #ffffff;
+    opacity: 95%;
+    width: 80%;
+    height: 80%;
+    overflow: scroll;
+    padding: 15px;
+  }
+
 .submit-box {
-    background-color: #EBF0EE;
+    /* background-color: #EBF0EE;
     height: 75vh;
-    width: 86vw;
+    width: 86vw; */
     color:black;
     font-size:2vw;
     font-family:Palatino,serif;
-    margin-left: 7vw;
-    margin-right: 7vw;
+    margin-left: 2vw;
+    margin-right: 2vw;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -173,3 +200,79 @@ body {
     content: "\2605";
     position: absolute;
 }
+
+.quotation {
+    height: 30px;
+    width: 30px;
+    min-height: 30px;
+    min-width: 30px;
+  }
+  
+  .landlord-icon {
+    height: 120px;
+    width: 120px;
+    min-height: 120px;
+    min-width: 120px;
+    margin-top: 10px;
+  }
+  
+  @media (max-width: 1000px) {
+    .landlord-icon {
+      height: 100px;
+      width: 100px;
+      min-height: 100px;
+      min-width: 100px;
+    }
+  
+    .quotation {
+      height: 25px;
+      width: 25px;
+      min-height: 25px;
+      min-width: 25px;
+    }
+  }
+  
+  @media (max-width: 900px) {
+    .landlord-icon {
+      height: 90px;
+      width: 90px;
+      min-height: 90px;
+      min-width: 90px;
+    }
+  
+    .quotation {
+      height: 20px;
+      width: 20px;
+      min-height: 20px;
+      min-width: 20px;
+    }
+  }
+  
+  @media (max-width: 800px) {
+    .landlord-icon {
+      height: 80px;
+      width: 80px;
+      min-height: 80px;
+      min-width: 80px;
+    }
+
+    .quotation {
+      height: 15px;
+      width: 15px;
+      min-height: 15px;
+      min-width: 15px;
+    }
+  }
+  
+  #content {
+  
+  }
+  
+  a {
+    text-decoration: none;
+    color: #4f4f4f;
+  }
+  
+  a:hover {
+    color: #4f4f4f;
+  }
