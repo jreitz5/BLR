@@ -38,6 +38,8 @@
       </label>
     </div>
     <div id="landlords-wrapper">
+    	<div id="reviews"></div>
+    	<#--
 	<#list reviews as rev>
       <div class="landlord">
         <img src="../images/landlordicon.png" alt="landlord icon" class="landlord-icon">
@@ -50,9 +52,10 @@
         </div>
       </div>	  
 	</#list>
+		-->
     </div>
   </div>
 </div>
-
+<script src="js/home.js"></script>
 </#assign>
 <#include "main.ftl">

@@ -109,12 +109,6 @@
       <version>2.5.5</version>
     </dependency>
 
-    <dependency>
-      <groupId>org.apache.spark</groupId>
-      <artifactId>spark-sql_2.11</artifactId>
-      <version>2.4.0</version>
-    </dependency>
-
     <!--
         SQLite dependency for databases.
         https://bitbucket.org/xerial/sqlite-jdbc.
