@@ -1,45 +1,48 @@
 <#assign content>
+<div id="content-wrapper">
+<div id="content">
   <div class="page-box">
-    <div class="submit-box" >
-      <div class="box-title">
+    <div class="submit-box">
+      <h1><div class="box-title" style="font-size:2vw;">
         Leave a Review!
-      </div>
+      </div></h1>
       <form>
         <div class="landlord-row">
-          Landlord:
+          <h2>Landlord:</h2>
           <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff;background-color:#363636;font-size:1vw;">
               required
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">need a get request to get all of them!</a>
+              <a class="dropdown-item" href="#" style="color:#363636;background-color:#ffffff;font-size:1vw;">need a get request to get all of them!</a>
             </div>
           </div>
         </div>
         <div class="property-row">
-          Property:
+          <h2>Property:</h2>
           <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff;background-color:#363636;font-size:1vw;">
               optional
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#">need a get request to get all of them!</a>
+              <a class="dropdown-item" href="#" style="color:#363636;background-color:#ffffff;font-size:1vw;">need a get request to get all of them!</a>
             </div>
           </div>
         </div>
         <div class="star-row">
-          Rating:
+          <h2>Rating:</h2>
           <div class="rating">
             <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
           </div>
         </div>
-        <textarea class="review-text" placeholder="Type your review here!"></textarea>
+        <textarea class="review-text" placeholder="Type your review here!" aria-label="Type your review here!" style="font-size:1.5vw;height:25vh;"></textarea>
         <div class="submit-row">
-          <button class="submit-button"> Submit</button>
+          <button class="submit-button" style="color:#ffffff;background-color:#363636;font-size:1.5vw;width:8vw;height:5vh;border-radius:10px;">Submit</button>
         </div>
       </form>
     </div>
   </div>
-
+</div>
+</div>
 </#assign>
 <#include "main.ftl">

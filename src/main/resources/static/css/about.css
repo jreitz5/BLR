@@ -7,68 +7,83 @@ body {
     -o-background-size: cover;
     background-size: cover;
   }
-  
-  #content-wrapper {
-    margin: auto;
-    background-color: #ffffff;
-    opacity: 90%;
-    width: 85%;
-    height: flex;
-  }
 
-  .box-title {
-    width: 100%;
-    align-items: center;
-    align-content: center;
-    justify-content: center;
-    text-align: center;
-    margin-top: 2%;
-    color: black;
-    font-family: Palatino,serif;
-    font-size: 2vw;
-
+#skip a { 
+  position: absolute; 
+  left: -10000px; 
+  top: auto; 
+  width: 1px; 
+  height: 1px; 
+  overflow: hidden;
+} 
+   
+#skip a:focus { 
+  position: static; 
+  width: auto; 
+  height: auto;
+  font-size: 1vw;
 }
   
-  #filters-wrapper {
-    height: 400px;
-  }
+#content-wrapper {
+  margin: auto;
+  background-color: #ffffff;
+  opacity: 95%;
+  width: 85%;
+  height: flex;
+}
+
+.box-title {
+  width: 100%;
+  align-items: center;
+  align-content: center;
+  justify-content: center;
+  text-align: center;
+  margin-top: 2%;
+  color: black;
+  font-family: Palatino,serif;
+  font-size: 2vw;
+}
   
-  #landlords-wrapper {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    height: 100%;
-  }
+#filters-wrapper {
+  height: 400px;
+}
   
-  .comment-wrapper {
-    margin-left: 20px;
-  }
+#landlords-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
   
-  .landlord {
-    margin-left: 15px;
-    display: flex;
-    flex-direction: row;
-    height: auto;
-    border-bottom: 1px solid #ababab;
-  }
+.comment-wrapper {
+  margin-left: 20px;
+}
   
-  .quotation {
-    height: 25px;
-    width: 25px;
-    min-height: 25px;
-    min-width: 25px;
-  }
+.landlord {
+  margin-left: 15px;
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  border-bottom: 1px solid #ababab;
+}
   
-  .landlord-content-wrapper {
-    margin-left: 10px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    margin-right: 10px;
-    display: flex;
-    flex-direction: column;
-  }
+.quotation {
+  height: 25px;
+  width: 25px;
+  min-height: 25px;
+  min-width: 25px;
+}
   
-  .landlord-content-wrapper h4 {
+.landlord-content-wrapper {
+  margin-left: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-right: 10px;
+  display: flex;
+  flex-direction: column;
+}
+  
+  .landlord-content-wrapper h1 {
     color: black;
     font-family: Palatino,serif;
     font-size: 2vw;
@@ -76,7 +91,7 @@ body {
   
   .landlord-content-wrapper a {
     color: black;
-    font-size: 1.5vw;
+    font-size: 1vw;
     font-family: Palatino,serif;
     text-align: justify;
   }
@@ -97,7 +112,7 @@ body {
       min-width: 100px;
     }
   
-    .landlord-content-wrapper h4 {
+    .landlord-content-wrapper h1 {
       font-size: 2.2vw;
     }
   
@@ -121,7 +136,7 @@ body {
       min-width: 90px;
     }
   
-    .landlord-content-wrapper h4 {
+    .landlord-content-wrapper h1 {
       font-size: 2.4vw;
     }
   
@@ -145,7 +160,7 @@ body {
       min-width: 80px;
     }
   
-    .landlord-content-wrapper h4 {
+    .landlord-content-wrapper h1 {
       font-size: 2.6vw;
     }
   
@@ -176,77 +191,4 @@ body {
   
   a:hover {
     color: #4f4f4f;
-  }
-  
-  .dropdown-label {
-    display: inline-block;
-    position: relative;
-  }
-  
-  .dropdown-btn {
-    display: inline-block;
-    border: 1px solid #e0e0e0;
-    border-radius: 4px;
-    padding: 10px 35px 10px 10px;
-    margin: 5px;
-    background-color: #ffffff;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-  
-  .dropdown-btn:after {
-    content: '';
-    position: absolute;
-    top: 50%;
-    right: 15px;
-    transform: translateY(-50%);
-    width: 0; 
-    height: 0; 
-    border-left: 5px solid transparent;
-    border-right: 5px solid transparent;
-    border-top: 5px solid black;
-  }
-  
-  .dropdown-btn:hover {
-    background-color: #eeeeee;
-  }
-  
-  .dropdown-input {
-    display: none;
-  }
-  
-  .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 0;
-    margin: 2px;
-    box-shadow: 0 0 6px 0 rgba(0,0,0,0.1);
-    background-color: #ffffff;
-    list-style-type: none;
-  }
-  
-  .dropdown-input + .dropdown-menu {
-    display: none;
-  } 
-  
-  .dropdown-input:checked + .dropdown-menu {
-    display: block;
-  } 
-  
-  .dropdown-menu li {
-    padding: 10px 20px;
-    cursor: pointer;
-    white-space: nowrap;
-  }
-  
-  .dropdown-menu li:hover {
-    background-color: #f6f6f6;
-  }
-  
-  .dropdown-menu li {
-    display: block;
-    margin: 5px 5px 0px 5px;
-    padding: 5px;
   }

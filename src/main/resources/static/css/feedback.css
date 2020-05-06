@@ -11,19 +11,44 @@ body {
     flex-direction: column;
 }
 
+#content-wrapper {
+    margin: auto;
+    margin-top: 20px;
+    background-color: #ffffff;
+    opacity: 95%;
+    width: 75%;
+    height: 80%;
+    overflow: scroll;
+    padding: 15px;
+}
+
+#skip a { 
+    position: absolute; 
+    left: -10000px; 
+    top: auto; 
+    width: 1px; 
+    height: 1px; 
+    overflow: hidden;
+  } 
+   
+  #skip a:focus { 
+    position: static; 
+    width: auto; 
+    height: auto;
+    font-size: 1vw;
+  }
+
 .page-box {
     width: 100%;
 }
 
 .submit-box {
-    background-color: #EBF0EE;
-    height: 75vh;
-    width: 60vw;
     color:black;
     font-size:2vw;
     font-family:Palatino,serif;
-    margin-left: 20vw;
-    margin-right: 20vw;
+    margin-left: 10vw;
+    margin-right: 10vw;
+    margin-bottom: 10vw;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -43,8 +68,6 @@ body {
 {
     vertical-align:middle;
 }
-
-
 
 .check-row {
     display: flex;
