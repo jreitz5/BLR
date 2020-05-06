@@ -1,6 +1,7 @@
 package main;
 
 
+import commands.GetLandlords;
 import commands.GetReviews;
 import commands.GetUser;
 import commands.RegisterUser;
@@ -99,6 +100,9 @@ public final class Main {
 
       FreeMarkerEngine freeMarker = createEngine();
 
+
+      Spark.post("/data", new DataHandler());
+
       Spark.get("/", new FrontHandler(), freeMarker);
       Spark.get("/home", new FrontHandler(), freeMarker);
       Spark.get("/about", new AboutHandler(), freeMarker);
@@ -108,8 +112,6 @@ public final class Main {
       Spark.get("/privacy", new PrivacyHandler(), freeMarker);
       Spark.get("/profile", new ProfileHandler(), freeMarker);
       Spark.get("/submit_review", new SubmitReviewHandler(), freeMarker);
-      
-      
     }
     
     private static class FrontHandler implements TemplateViewRoute {
@@ -118,11 +120,36 @@ public final class Main {
         
         // For testing
         GetReviews test = new GetReviews();
+
+//        List<List<String>> landlords =
         
         Map<String, Object> variables = ImmutableMap.of("title",
             "Brown Landlord Review", "style", "home.css", "reviews", test.getReviewsAsList());
         return new ModelAndView(variables, "home.ftl");
       }
+    }
+
+    private class DataHandler implements Route {
+        @Override
+        public String handle(Request req, Response res) {
+            QueryParamsMap qm = req.queryMap();
+            int landlord = Integer.parseInt(qm.value("landlord"));
+            int property = Integer.parseInt(qm.value("property"));
+
+            GetLandlords getter = new GetLandlords();
+            List<String> names = getter.getNames();
+
+            Map<String, Object> variables =
+                    ImmutableMap.of("landlords", names);
+
+            return GSON.toJson(variables);
+
+//            if (landlord == 1) {
+//
+//            }
+
+//            return null;
+        }
     }
     
     private static class AboutHandler implements TemplateViewRoute {
