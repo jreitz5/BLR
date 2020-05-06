@@ -3,9 +3,9 @@
   <div id="content">
     <div id="filters-wrapper">
       <label class="dropdown-label">
-        <div class="dropdown-btn">
+        <h2><div class="dropdown-btn">
           Sort by
-        </div>
+        </div></h2>
         <input type="checkbox" class="dropdown-input" id="sort-by">
         <ul class="dropdown-menu">
           <li>Newest</li>
@@ -14,9 +14,9 @@
         </ul>
       </label>
       <label class="dropdown-label">
-        <div class="dropdown-btn">
+        <h2><div class="dropdown-btn">
           Landlord
-        </div>
+        </div></h2>
         <input type="checkbox" class="dropdown-input" id="landlord">
         <ul class="dropdown-menu">
           <li>Jessica Alba</li>
@@ -26,9 +26,9 @@
         </ul>
       </label>
       <label class="dropdown-label">
-        <div class="dropdown-btn">
+        <h2><div class="dropdown-btn">
           Property
-        </div>
+        </div></h2>
         <input type="checkbox" class="dropdown-input" id="property">
         <ul class="dropdown-menu">
           <li>184 Ives St Unit 2</li>
@@ -44,7 +44,7 @@
       <div class="landlord">
         <img src="../images/landlordicon.png" alt="landlord icon" class="landlord-icon">
         <div class="landlord-content-wrapper">
-          <h4>${rev[8]} ${rev[9]}</h4>
+          <h3>${rev[8]} ${rev[9]}</h3>
           <img src="../images/quotation.png" alt="opening quotation mark" class="quotation">
           <div class="comment-wrapper">
             <a>${rev[5]}</a>

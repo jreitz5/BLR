@@ -1,8 +1,10 @@
 <#assign content>
+<div id="content-wrapper">
+<div id="content">
   <div class="page-box">
     <div class="submit-box">
         <div class="landlord-row">
-            <img src="../images/profile.png" alt="landlord icon" class="landlord-icon">
+            <img src="../images/profile.png" alt="Your Profile Icon" class="landlord-icon">
             <div class="landlord-col">
                 User's Name
                 <div class="user-info">
@@ -30,8 +32,10 @@
                             <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
                         </div>
                     </div> 
-                    <img src="../images/quotation.png" alt="opening quotation mark" class="quotation">
-                  <a>Jessica really cares about her tenants and makes sure to answer maintenance requests immediately. She's really lenient on rent deadlines and understanding.</a>
+                    <img src="../images/quotation.png" alt="opening quotation mark" class="quotation"><br>
+                    <div style="margin-left:3vw;">
+                        <a>Jessica really cares about her tenants and makes sure to answer maintenance requests immediately. She's really lenient on rent deadlines and understanding.</a>
+                    </div>
                 </div>
               </div>
             </div>
@@ -50,8 +54,10 @@
                                 <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
                             </div>
                         </div> 
-                        <img src="../images/quotation.png" alt="opening quotation mark" class="quotation">
-                        <a>Jessica really cares about her tenants and makes sure to answer maintenance requests immediately. She's really lenient on rent deadlines and understanding.</a>
+                        <img src="../images/quotation.png" alt="opening quotation mark" class="quotation"><br>
+                        <div style="margin-left:3vw;">
+                            <a>Jessica really cares about her tenants and makes sure to answer maintenance requests immediately. She's really lenient on rent deadlines and understanding.</a>
+                        </div>
                   </div>
                 </div>
             </div>
@@ -70,8 +76,10 @@
                             <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
                         </div>
                     </div> 
-                    <img src="../images/quotation.png" alt="opening quotation mark" class="quotation">
-                    <a>Jessica really cares about her tenants and makes sure to answer maintenance requests immediately. She's really lenient on rent deadlines and understanding.</a>
+                    <img src="../images/quotation.png" alt="opening quotation mark" class="quotation"><br>
+                    <div style="margin-left:3vw;">
+                        <a>Jessica really cares about her tenants and makes sure to answer maintenance requests immediately. She's really lenient on rent deadlines and understanding.</a>
+                    </div>
                 </div>
             </div>
             </div>
@@ -80,6 +88,7 @@
         </div>  
     </div>
   </div>
-
+</div>
+</div>
 </#assign>
 <#include "main.ftl">
