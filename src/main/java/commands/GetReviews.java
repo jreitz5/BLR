@@ -11,6 +11,7 @@ import java.util.List;
 public class GetReviews implements Command {
 
     private DBProxy proxy;
+    private List<List<String>> reviews;
 
     public GetReviews() {
         try {
@@ -21,13 +22,19 @@ public class GetReviews implements Command {
         }
 
         List<List<String>> reviews = this.getReviewsByApproved(1);
+        this.reviews = reviews;
         for (int i = 0; i < reviews.size(); i++) {
             System.out.println("Review " + i + ": ");
             List<String> review = reviews.get(i);
-            for (int j = 0; j < 8; j++) {
-                System.out.println(review.get(j));
+            for (int j = 0; j < review.size(); j++) {
+                System.out.print(review.get(j) + ", ");
             }
+            System.out.println("");
         }
+    }
+    
+    public List<List<String>> getReviewsAsList() {
+      return this.reviews;
     }
 
     public boolean validInput(String input) {
@@ -40,7 +47,10 @@ public class GetReviews implements Command {
     }
 
     public List<List<String>> getReviewsByApproved(int approved) {
-        String stat = "SELECT * FROM reviews WHERE approved = ?;";
+        String stat = "SELECT reviews.review_id, reviews.user_id, reviews.landlord_id, reviews.property_id, reviews.review_rating, reviews.text_review, reviews.anonymous, reviews.date, reviews.approved, landlord.first_name, landlord.last_name"
+            + " FROM reviews"
+            + " LEFT JOIN landlord ON reviews.landlord_id=landlord.landlord_id"
+            + " WHERE approved = ?;";
         PreparedStatement prep;
         try {
             // Prepare statement
@@ -69,6 +79,10 @@ public class GetReviews implements Command {
                 review.add(anon);
                 String date = rs.getString(8);
                 review.add(date);
+                String landlord_first_name = rs.getString(10);
+                review.add(landlord_first_name);
+                String landlord_last_name = rs.getString(11);
+                review.add(landlord_last_name);
                 reviews.add(review);
             }
             // Close the connections and return the result
