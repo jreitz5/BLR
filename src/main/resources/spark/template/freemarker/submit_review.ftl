@@ -1,12 +1,12 @@
 <#assign content>
 <div id="content-wrapper">
-<div id="content">
+<div id="content" role="main">
   <div class="page-box">
     <div class="submit-box">
       <h1><div class="box-title" style="font-size:2vw;">
         Leave a Review!
       </div></h1>
-      <form>
+      <form role="form">
         <div class="landlord-row">
           <h2>Landlord:</h2>
           <div class="dropdown">

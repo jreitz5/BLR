@@ -1,6 +1,6 @@
 <#assign content>
 <div id="content-wrapper">
-<div id="content">
+<div id="content" role="main">
   <div class="page-box">
     <div class="submit-box">
         <div class="landlord-row">
