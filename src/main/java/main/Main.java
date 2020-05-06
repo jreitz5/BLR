@@ -1,9 +1,11 @@
 package main;
 
 
+import commands.GetLandlords;
 import commands.GetReviews;
 import commands.GetUser;
 import commands.RegisterUser;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -67,6 +69,12 @@ public final class Main {
         if (options.has("gui")) {
         runSparkServer((int) options.valueOf("port"));
         }
+        GetLandlords getter = new GetLandlords();
+        List<String> names = getter.getNames();
+        for (int i = 0; i < names.size(); i++){
+            System.out.println(names.get(i));
+        }
+
         REPL repl = new REPL();
 
         // Register REPL commands here.
@@ -101,6 +109,7 @@ public final class Main {
 
       Spark.get("/", new FrontHandler(), freeMarker);
       Spark.get("/home", new FrontHandler(), freeMarker);
+      Spark.post("/home/reviews", new ReviewsHandler());
       Spark.get("/about", new AboutHandler(), freeMarker);
       Spark.get("/feedback", new FeedbackHandler(), freeMarker);
       Spark.get("/landlord", new LandlordHandler(), freeMarker);
@@ -108,8 +117,35 @@ public final class Main {
       Spark.get("/privacy", new PrivacyHandler(), freeMarker);
       Spark.get("/profile", new ProfileHandler(), freeMarker);
       Spark.get("/submit_review", new SubmitReviewHandler(), freeMarker);
-      
-      
+      Spark.post("/submit_review/data", new DataHandler());
+    }
+    
+    private static class ReviewsHandler implements Route {
+      @Override
+      public String handle(Request req, Response res) {
+
+        // For testing
+        GetReviews test = new GetReviews();
+        List<List<String>> reviews = test.getReviewsAsList();
+        
+        Map<String, Object> variables = ImmutableMap.of("reviews",
+            reviews);
+        return GSON.toJson(variables);
+      }
+    }
+
+    private class DataHandler implements Route {
+        @Override
+        public String handle(Request req, Response res) {
+            GetLandlords getter = new GetLandlords();
+            List<String> names = getter.getNames();
+            System.out.println(names);
+
+            Map<String, Object> variables =
+                    ImmutableMap.of("landlords", names);
+
+            return GSON.toJson(variables);
+        }
     }
     
     private static class FrontHandler implements TemplateViewRoute {
@@ -118,9 +154,13 @@ public final class Main {
         
         // For testing
         GetReviews test = new GetReviews();
+
+//        List<List<String>> landlords =
+//        GetReviews test = new GetReviews();
+
         
         Map<String, Object> variables = ImmutableMap.of("title",
-            "Brown Landlord Review", "style", "home.css", "reviews", test.getReviewsAsList());
+            "Brown Landlord Review", "style", "home.css"/*, "reviews", test.getReviewsAsList()*/);
         return new ModelAndView(variables, "home.ftl");
       }
     }
