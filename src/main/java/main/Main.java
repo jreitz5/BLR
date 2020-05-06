@@ -4,6 +4,8 @@ package main;
 import commands.GetReviews;
 import commands.GetUser;
 import commands.RegisterUser;
+import edu.brown.cs.bli31.autocorrect.AcRepl;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -101,6 +103,7 @@ public final class Main {
 
       Spark.get("/", new FrontHandler(), freeMarker);
       Spark.get("/home", new FrontHandler(), freeMarker);
+      Spark.post("/home/reviews", new ReviewsHandler());
       Spark.get("/about", new AboutHandler(), freeMarker);
       Spark.get("/feedback", new FeedbackHandler(), freeMarker);
       Spark.get("/landlord", new LandlordHandler(), freeMarker);
@@ -112,15 +115,29 @@ public final class Main {
       
     }
     
+    private static class ReviewsHandler implements Route {
+      @Override
+      public String handle(Request req, Response res) {
+
+        // For testing
+        GetReviews test = new GetReviews();
+        List<List<String>> reviews = test.getReviewsAsList();
+        
+        Map<String, Object> variables = ImmutableMap.of("reviews",
+            reviews);
+        return GSON.toJson(variables);
+      }
+    }
+    
     private static class FrontHandler implements TemplateViewRoute {
       @Override
       public ModelAndView handle(Request req, Response res) {
         
         // For testing
-        GetReviews test = new GetReviews();
+//        GetReviews test = new GetReviews();
         
         Map<String, Object> variables = ImmutableMap.of("title",
-            "Brown Landlord Review", "style", "home.css", "reviews", test.getReviewsAsList());
+            "Brown Landlord Review", "style", "home.css"/*, "reviews", test.getReviewsAsList()*/);
         return new ModelAndView(variables, "home.ftl");
       }
     }
