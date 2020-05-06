@@ -67,8 +67,6 @@ public final class Main {
         if (options.has("gui")) {
         runSparkServer((int) options.valueOf("port"));
         }
-        // For testing
-//        GetReviews test = new GetReviews();
         REPL repl = new REPL();
 
         // Register REPL commands here.
@@ -117,8 +115,12 @@ public final class Main {
     private static class FrontHandler implements TemplateViewRoute {
       @Override
       public ModelAndView handle(Request req, Response res) {
+        
+        // For testing
+        GetReviews test = new GetReviews();
+        
         Map<String, Object> variables = ImmutableMap.of("title",
-            "Brown Landlord Review", "style", "home.css");
+            "Brown Landlord Review", "style", "home.css", "reviews", test.getReviewsAsList());
         return new ModelAndView(variables, "home.ftl");
       }
     }
