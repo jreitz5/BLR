@@ -1,10 +1,10 @@
 package main;
 
 
+import commands.GetLandlords;
 import commands.GetReviews;
 import commands.GetUser;
 import commands.RegisterUser;
-import edu.brown.cs.bli31.autocorrect.AcRepl;
 
 import java.io.File;
 import java.io.IOException;
@@ -69,6 +69,12 @@ public final class Main {
         if (options.has("gui")) {
         runSparkServer((int) options.valueOf("port"));
         }
+        GetLandlords getter = new GetLandlords();
+        List<String> names = getter.getNames();
+        for (int i = 0; i < names.size(); i++){
+            System.out.println(names.get(i));
+        }
+
         REPL repl = new REPL();
 
         // Register REPL commands here.
@@ -111,8 +117,7 @@ public final class Main {
       Spark.get("/privacy", new PrivacyHandler(), freeMarker);
       Spark.get("/profile", new ProfileHandler(), freeMarker);
       Spark.get("/submit_review", new SubmitReviewHandler(), freeMarker);
-      
-      
+      Spark.post("/submit_review/data", new DataHandler());
     }
     
     private static class ReviewsHandler implements Route {
@@ -128,13 +133,31 @@ public final class Main {
         return GSON.toJson(variables);
       }
     }
+
+    private class DataHandler implements Route {
+        @Override
+        public String handle(Request req, Response res) {
+            GetLandlords getter = new GetLandlords();
+            List<String> names = getter.getNames();
+            System.out.println(names);
+
+            Map<String, Object> variables =
+                    ImmutableMap.of("landlords", names);
+
+            return GSON.toJson(variables);
+        }
+    }
     
     private static class FrontHandler implements TemplateViewRoute {
       @Override
       public ModelAndView handle(Request req, Response res) {
         
         // For testing
+        GetReviews test = new GetReviews();
+
+//        List<List<String>> landlords =
 //        GetReviews test = new GetReviews();
+
         
         Map<String, Object> variables = ImmutableMap.of("title",
             "Brown Landlord Review", "style", "home.css"/*, "reviews", test.getReviewsAsList()*/);

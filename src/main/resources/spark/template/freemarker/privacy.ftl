@@ -1,4 +1,6 @@
 <#assign content>
+<div id="content-wrapper">
+<div id="content">
 <div class="page-box">
     <div class="submit-box">
       <div class="box-title">
@@ -19,5 +21,7 @@
       
     </div>
   </div>
+</div>
+</div>
 </#assign>
 <#include "main.ftl">
