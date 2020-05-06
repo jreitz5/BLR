@@ -133,11 +133,8 @@ public final class Main {
       @Override
       public ModelAndView handle(Request req, Response res) {
         
-        // For testing
-//        GetReviews test = new GetReviews();
-        
         Map<String, Object> variables = ImmutableMap.of("title",
-            "Brown Landlord Review", "style", "home.css"/*, "reviews", test.getReviewsAsList()*/);
+            "Brown Landlord Review", "style", "home.css");
         return new ModelAndView(variables, "home.ftl");
       }
     }
