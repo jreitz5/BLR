@@ -30,7 +30,11 @@
         <div class="star-row">
           <h2>Rating:</h2>
           <div class="rating">
-            <span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>
+            <span onclick="ffive()" id="five">☆</span>
+            <span onclick="ffour()" id="four">☆</span>
+            <span onclick="fthree()" id="three">☆</span>
+            <span onclick="ftwo()" id="two">☆</span>
+            <span onclick="fone()" id="one">☆</span>
           </div>
         </div>
         <textarea class="review-text" placeholder="Type your review here!" aria-label="Type your review here!" style="font-size:1.5vw;height:25vh;"></textarea>

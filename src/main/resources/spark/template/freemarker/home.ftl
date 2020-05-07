@@ -3,11 +3,12 @@
   <div id="content" role="main">
     <div id="filters-wrapper">
       <label class="dropdown-label">
-        <h2><div class="dropdown-btn">
+        <h2><div class="dropdown-btn" id="sort-selected">
           Sort by
         </div></h2>
         <input type="checkbox" class="dropdown-input" id="sort-by">
-        <ul class="dropdown-menu">
+        <ul class="dropdown-menu" id="sort-dropdown">
+          <li>Select...</li>
           <li>Newest</li>
           <li>Oldest</li>
           <li>Highest Ratings</li>
@@ -22,15 +23,17 @@
         </ul>
       </label>
       <label class="dropdown-label">
-        <h2><div class="dropdown-btn">
+        <h2><div class="dropdown-btn" id="property-selected">
           Property
         </div></h2>
         <input type="checkbox" class="dropdown-input" id="property">
-        <ul class="dropdown-menu">
-          <li>184 Ives St Unit 2</li>
-          <li>89 Williams St</li>
-          <li>64 John St</li>
+        <ul class="dropdown-menu" id="property-dropdown">
         </ul>
+      </label>
+      <label>
+      <form class="form-inline">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search..." role="search" aria-label="Search" style="font-size:1.5vw;font-family:Palatino,serif;text-align:center;height:40px;width:160px;border-radius:18px;margin-top:-12px;" id="search-input">
+        </form>
       </label>
     </div>
     <div id="landlords-wrapper">

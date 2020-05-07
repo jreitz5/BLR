@@ -29,10 +29,8 @@ $(document).ready(() => {
         landlordSelected.innerHTML = name;
         propertiesSelected.innerHTML = "optional";
         return;
-    };
-
-
-    $property_selector.click(function() {
+    }   
+     $property_selector.click(function() {
         let landlordVal = $landlord_selector.text();
         console.log("Selected landlord: " + landlordVal);
         console.log(properties_list);
@@ -54,9 +52,50 @@ $(document).ready(() => {
         propertiesSelected.innerHTML = name;
         return;
     };
-
 });
 
 
 
 
+let five = document.getElementById("five");
+let four = document.getElementById("four");
+let three = document.getElementById("three");
+let two = document.getElementById("two");
+let one = document.getElementById("one");
+let stars = [one, two, three, four, five];
+
+let rating = null;
+//sets HTML on page load since star doesn't load properly normally
+stars.forEach( function(element) {
+    element.innerHTML = "☆"; 
+});
+
+function refreshStars(num){
+    stars.forEach( function(element) {
+        element.innerHTML = "☆"; 
+    });
+    for (let index = 0; index < num; index++) {
+        stars[index].innerHTML = "★";
+    }
+}
+
+function ffive(){
+    rating = 5;
+    refreshStars(rating);
+}
+function ffour(){
+    rating = 4;
+    refreshStars(rating);
+}
+function fthree(){
+    rating = 3;
+    refreshStars(rating);
+}
+function ftwo(){
+    rating = 2;
+    refreshStars(rating);
+}
+function fone(){
+    rating = 1;
+    refreshStars(rating);
+}
