@@ -67,9 +67,12 @@ public class GetReviews implements Command {
     }
 
     public List<List<String>> getReviewsByApproved(int approved) {
-        String stat = "SELECT reviews.review_id, reviews.user_id, reviews.landlord_id, reviews.property_id, reviews.review_rating, reviews.text_review, reviews.anonymous, reviews.date, reviews.approved, landlord.first_name, landlord.last_name"
+        String stat = "SELECT reviews.review_id, reviews.user_id, reviews.landlord_id, reviews.property_id, "
+            + "reviews.review_rating, reviews.text_review, reviews.anonymous, reviews.date, reviews.approved, "
+            + "landlord.first_name, landlord.last_name, properties.address"
             + " FROM reviews"
             + " LEFT JOIN landlord ON reviews.landlord_id=landlord.landlord_id"
+            + " LEFT JOIN properties ON reviews.property_id=properties.property_id"
             + " WHERE approved = ?;";
         PreparedStatement prep;
         try {
@@ -103,6 +106,8 @@ public class GetReviews implements Command {
                 review.add(landlord_first_name);
                 String landlord_last_name = rs.getString(11);
                 review.add(landlord_last_name);
+                String address = rs.getString(12);
+                review.add(address);
                 reviews.add(review);
             }
             // Close the connections and return the result

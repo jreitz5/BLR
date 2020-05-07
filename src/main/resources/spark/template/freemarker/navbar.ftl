@@ -19,9 +19,9 @@
         <li class="nav-item">
           <a class="nav-link" href="/about" style="color:black;font-size:2vw;font-family:Palatino,serif;margin:5px 50px 5px 5px;"><h1>About</h1><span class="sr-only"></span></a>
         </li>
-        <form class="form-inline">
+        <#--<form class="form-inline">
           <input class="form-control mr-sm-2" type="search" placeholder="Search" role="search" aria-label="Search" style="font-size:1.5vw;font-family:Palatino,serif;text-align:center;height:40px;width:160px;border-radius:18px;margin-top:-12px;">
-        </form>
+        </form>-->
         <li>
           <a href="/profile"><h1>
             <img src="../images/profile.png" alt="Go to profile." style="width:45px;height:45px;margin:5px;margin-top:10px;"></h1>
