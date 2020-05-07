@@ -5,20 +5,23 @@
         Welcome to Brown Landlord Review.
       </div>
       <div class="login-title">
-          Login<span class="gray-text">/Signup</span>
+          Login<a class="gray-text" href="/create">/Signup</a>
       </div>
-        
+
+<#--        <a class="g-signin2" data-onsuccess="onSignIn" data-onfailure="onFailure" data-longtitle="true"></a>-->
+
       <form>
-        <textarea class="login-text" placeholder="email"></textarea>
         <div class="login-title-2 gray-text">
             Enter your brown.edu email address
         </div>
-        <textarea class="login-text" placeholder="password"></textarea>
+          <textarea class="login-text" placeholder="email" id="email"></textarea>
+          <div class="login-title-2 gray-text" id="check-response">
+          </div>
         <div class="submit-row">
-            <button class="login-button"> Login</button>
+            <button class="login-button" onclick="signin()"> Login</button>
         </div>
       </form>
-      
+
     </div>
   </div>
 </#assign>

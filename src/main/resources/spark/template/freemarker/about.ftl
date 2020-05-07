@@ -10,7 +10,7 @@
           <h1>Taylor</h1>
           <img src="../images/quotation.png" alt="opening quotation mark" class="quotation">
           <div class="comment-wrapper">
-            <a>I'm Taylor, and I spear-headed this project to complete it as my capstone project in Computer Science. I'm passionate about helping the Brown community and holding landlords accountable!</a>
+            <a>I'm Taylor, and I spear-headed this project. I'm passionate about helping the Brown community and holding landlords accountable!</a>
           </div>
         </div>
       </div>

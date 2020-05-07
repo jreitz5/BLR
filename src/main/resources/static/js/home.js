@@ -7,12 +7,16 @@ $(document).ready(() => {
 	const $search = $("#search-input");
 	let reviewsList = [];
 	let filtered = [];
+	let landlords = [];
+	let properties = [];
 	
 	const updateReviewsList = function(list) {
 		$reviews.empty();
 		for (let i = 0, len = list.length; i < len; i++) {
 			const reviewObj = list[i];
-			const str = generateReviewHTML(reviewObj.landlord_name, reviewObj.review);
+			let stars = determineStars(reviewObj.rating);
+			console.log(stars);
+			const str = generateReviewHTML(reviewObj.landlord_name, reviewObj.review, stars);
 			$reviews.append(str);
 		}
 	}
@@ -26,10 +30,20 @@ $(document).ready(() => {
 			// reviewObj is just for making reviews more accessible vs having to use indexing
 			const reviewObj = {landlord_name: review[8] + " " + review[9], review: review[5], date: review[7], rating: review[4], address: review[10] };
 			reviewsList.push(reviewObj);
-			const str = generateReviewHTML(reviewObj.landlord_name, reviewObj.review);
+			let stars = determineStars(reviewObj.rating);
+			console.log(stars);
+			const str = generateReviewHTML(reviewObj.landlord_name, reviewObj.review, stars);
 			$reviews.append(str);
-			$landlordList.append("<li>" + reviewObj.landlord_name + "</li>");
-			$propertyList.append("<li>" + reviewObj.address + "</li>");
+			if (false === Boolean(landlords.includes(reviewObj.landlord_name))) {
+				landlords.push(reviewObj.landlord_name);
+				$landlordList.append("<li>" + reviewObj.landlord_name + "</li>");
+			}
+			if (reviewObj.address != null) {
+				if (false === Boolean(properties.includes(reviewObj.address))) {
+					properties.push(reviewObj.address);
+					$propertyList.append("<li>" + reviewObj.address + "</li>");
+				}
+			}
 		}
 	 });
 	 
@@ -43,7 +57,7 @@ $(document).ready(() => {
 			list.sort(function(a,b){return new Date(a.date) - new Date(b.date)});
 		}
 		if (method === "Highest Ratings") {
-			list.sort(function(a,b){return a.rating - b.rating});
+			list.sort(function(a,b){return b.rating - a.rating});
 		}
 		return list;
 	 }
@@ -142,11 +156,26 @@ $(document).ready(() => {
 
 });
 
-const generateReviewHTML = function(landlordName, review) {
+function determineStars(num) {
+	if (num === "1") {
+		return "<span>★</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span>";
+	} else if (num === "2") {
+		return "<span>★</span><span>★</span><span>☆</span><span>☆</span><span>☆</span>";
+	} else if (num === "3") {
+		return "<span>★</span><span>★</span><span>★</span><span>☆</span><span>☆</span>";
+	} else if (num === "4") {
+		return "<span>★</span><span>★</span><span>★</span><span>★</span><span>☆</span>";
+	} else if (num === "5") {
+		return "<span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>";
+	}
+}
+
+const generateReviewHTML = function(landlordName, review, stars) {
 	const str = "<div class=\"landlord\">"
 			+ "<img src=\"../images/landlordicon.png\" alt=\"landlord icon\" class=\"landlord-icon\">"
 			+ "<div class=\"landlord-content-wrapper\">"
 			+ "<h3>" + landlordName + "</h3>"
+			+ "<div class=\"rating\">" + stars + "</div>"
 			+ "<img src=\"../images/quotation.png\" alt=\"opening quotation mark\" class=\"quotation\">"
 			+ "<div class=\"comment-wrapper\">"
 			+ "<a>" + review + "</a>"
