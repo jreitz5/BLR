@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg" role=”navigation” aria-label=”main menu”>
+<nav class="navbar navbar-expand-lg" role="navigation" aria-label="main menu">
   <div id="skip"><a href="#content" style="color:#000000;background-color:#ffffff;border:1px solid #000000;font-size:1.5vw;">Skip to Main Content</a></div>
   <h1><a class="navbar-brand" style="color:black;font-size:4vw;font-family:Palatino, serif;margin: 10px;">BLR</a></h1>
   <button class="navbar-toggler navbar-light bg-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

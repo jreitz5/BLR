@@ -12,7 +12,16 @@ public class RegisterUser implements Command {
 
     public RegisterUser() {
         try {
-            this.proxy = new DBProxy();
+            this.proxy = new DBProxy("jdbc:sqlite:data/blr.sqlite3");
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            System.err.println(e.getStackTrace());
+        }
+    }
+
+    public RegisterUser(String url) {
+        try {
+            this.proxy = new DBProxy(url);
         } catch (Exception e) {
             System.err.println(e.getMessage());
             System.err.println(e.getStackTrace());

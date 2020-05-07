@@ -15,7 +15,27 @@ public class GetReviews implements Command {
 
     public GetReviews() {
         try {
-            this.proxy = new DBProxy();
+            this.proxy = new DBProxy("jdbc:sqlite:data/blr.sqlite3");
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            System.err.println(e.getStackTrace());
+        }
+
+        List<List<String>> reviews = this.getReviewsByApproved(1);
+        this.reviews = reviews;
+        for (int i = 0; i < reviews.size(); i++) {
+            System.out.println("Review " + i + ": ");
+            List<String> review = reviews.get(i);
+            for (int j = 0; j < review.size(); j++) {
+                System.out.print(review.get(j) + ", ");
+            }
+            System.out.println("");
+        }
+    }
+
+    public GetReviews(String url) {
+        try {
+            this.proxy = new DBProxy(url);
         } catch (Exception e) {
             System.err.println(e.getMessage());
             System.err.println(e.getStackTrace());
@@ -90,7 +110,7 @@ public class GetReviews implements Command {
             prep.close();
             return reviews;
         } catch (SQLException e) {
-            System.out.println("ERROR: Failed to insert new user into database. " + e.getMessage());
+            System.out.println("ERROR: Failed to retrieve reviews from database. " + e.getMessage());
             return null;
         }
     }
