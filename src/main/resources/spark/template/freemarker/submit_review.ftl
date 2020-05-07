@@ -10,11 +10,11 @@
         <div class="landlord-row">
           <h2>Landlord:</h2>
           <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff;background-color:#363636;font-size:1vw;">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="landlord-selected" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff;background-color:#363636;font-size:1vw;">
               required
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="landlords">
-              <a class="dropdown-item" href="#" style="color:#363636;background-color:#ffffff;font-size:1vw;">need a get request to get all of them!</a>
+              <!--<a class="dropdown-item" href="#" style="color:#363636;background-color:#ffffff;font-size:1vw;">required</a> -->
             </div>
           </div>
         </div>
@@ -24,8 +24,8 @@
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff;background-color:#363636;font-size:1vw;">
               optional
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-              <a class="dropdown-item" href="#" style="color:#363636;background-color:#ffffff;font-size:1vw;">need a get request to get all of them!</a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="properties">
+              <a class="dropdown-item" href="#" style="color:#363636;background-color:#ffffff;font-size:1vw;">optional</a>
             </div>
           </div>
         </div>
