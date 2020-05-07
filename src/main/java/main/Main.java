@@ -1,10 +1,7 @@
 package main;
 
 
-import commands.GetLandlords;
-import commands.GetReviews;
-import commands.GetUser;
-import commands.RegisterUser;
+import commands.*;
 
 import java.io.File;
 import java.io.IOException;
@@ -138,11 +135,12 @@ public final class Main {
         @Override
         public String handle(Request req, Response res) {
             GetLandlords getter = new GetLandlords();
+            GetProperties propers = new GetProperties();
             List<String> names = getter.getNames();
-            System.out.println(names);
+            List<List<String>> properties = propers.getNames();
 
             Map<String, Object> variables =
-                    ImmutableMap.of("landlords", names);
+                    ImmutableMap.of("landlords", names, "properties", properties);
 
             return GSON.toJson(variables);
         }
