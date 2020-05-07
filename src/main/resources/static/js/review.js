@@ -8,7 +8,7 @@ $(document).ready(() => {
             console.log(response.landlords[i]);
             const str = "<div class=\"dropdown-item\">" +
                 landlord + "</div>";
-            // $landlords.append(str);
+            $landlords.append(str);
         }
     });
 });
