@@ -1,8 +1,8 @@
 $(document).ready(() => {
     const $landlords = $("#landlords");
     const $properties = $("#properties");
-    const $landlord_selector = $("#dropdownMenuButton");
-    const $property_selector = $("#dropdownMenuButton2");
+    const $landlord_selector = $("#landlord-selected");
+    const $property_selector = $("#property-selected");
 
     let properties_list;
 
@@ -19,10 +19,24 @@ $(document).ready(() => {
         }
     });
 
+    let landlordSelected = document.getElementById('landlord-selected');
+    let landlordElement = document.getElementById('landlords');
+    let propertiesSelected = document.getElementById('property-selected');
+    let propertiesElement = document.getElementById('properties');
+
+    landlordElement.onclick = function(e) {
+        let name = e.target.innerHTML;
+        landlordSelected.innerHTML = name;
+        propertiesSelected.innerHTML = "optional";
+        return;
+    };
+
+
     $property_selector.click(function() {
         let landlordVal = $landlord_selector.text();
         console.log("Selected landlord: " + landlordVal);
         console.log(properties_list);
+        $properties.empty();
         for (let i = 0;  i < properties_list.length; i++) {
             let land_name = properties_list[i][0];
             let prop_name = properties_list[i][1];
@@ -34,6 +48,13 @@ $(document).ready(() => {
             }
         }
     });
+
+    propertiesElement.onclick = function(e) {
+        let name = e.target.innerHTML;
+        propertiesSelected.innerHTML = name;
+        return;
+    };
+
 });
 
 
