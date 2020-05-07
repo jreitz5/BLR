@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg">
+<nav class="navbar navbar-expand-lg" role="navigation" aria-label="main menu">
   <div id="skip"><a href="#content" style="color:#000000;background-color:#ffffff;border:1px solid #000000;font-size:1.5vw;">Skip to Main Content</a></div>
   <h1><a class="navbar-brand" style="color:black;font-size:4vw;font-family:Palatino, serif;margin: 10px;">BLR</a></h1>
   <button class="navbar-toggler navbar-light bg-light" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -20,7 +20,7 @@
           <a class="nav-link" href="/about" style="color:black;font-size:2vw;font-family:Palatino,serif;margin:5px 50px 5px 5px;"><h1>About</h1><span class="sr-only"></span></a>
         </li>
         <form class="form-inline">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" style="font-size:1.5vw;font-family:Palatino,serif;text-align:center;height:40px;width:160px;border-radius:18px;margin-top:-12px;">
+          <input class="form-control mr-sm-2" type="search" placeholder="Search" role="search" aria-label="Search" style="font-size:1.5vw;font-family:Palatino,serif;text-align:center;height:40px;width:160px;border-radius:18px;margin-top:-12px;">
         </form>
         <li>
           <a href="/profile"><h1>

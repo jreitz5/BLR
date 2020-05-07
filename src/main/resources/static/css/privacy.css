@@ -11,6 +11,17 @@ body {
     flex-direction: column;
 }
 
+#content-wrapper {
+    margin: auto;
+    margin-top: 20px;
+    background-color: #ffffff;
+    opacity: 95%;
+    width: 60%;
+    height: 75%;
+    overflow: scroll;
+    padding: 15px;
+  }
+
 #skip a { 
     position: absolute; 
     left: -10000px; 
@@ -36,14 +47,13 @@ body {
 }
   
 .submit-box {
-    background-color: #EBF0EE;
-    height: 75vh;
-    width: 50vw;
+    background-color: inherit;
+    height: auto;
+    width: auto;
     color:black;
     font-size:1.4vw;
     font-family:Palatino,serif;
-    margin-left: 20vw;
-    margin-right: 20vw;
+    margin-bottom: 10vw;
     display: flex;
     flex-direction: column;
     align-content: center;

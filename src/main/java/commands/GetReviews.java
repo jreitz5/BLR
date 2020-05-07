@@ -43,14 +43,14 @@ public class GetReviews implements Command {
 
         List<List<String>> reviews = this.getReviewsByApproved(1);
         this.reviews = reviews;
-        for (int i = 0; i < reviews.size(); i++) {
-            System.out.println("Review " + i + ": ");
-            List<String> review = reviews.get(i);
-            for (int j = 0; j < review.size(); j++) {
-                System.out.print(review.get(j) + ", ");
-            }
-            System.out.println("");
-        }
+//        for (int i = 0; i < reviews.size(); i++) {
+//            System.out.println("Review " + i + ": ");
+//            List<String> review = reviews.get(i);
+//            for (int j = 0; j < review.size(); j++) {
+//                System.out.print(review.get(j) + ", ");
+//            }
+//            System.out.println("");
+//        }
     }
     
     public List<List<String>> getReviewsAsList() {

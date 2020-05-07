@@ -1,6 +1,6 @@
 <#assign content>
 <div id="content-wrapper">
-  <div id="content">
+  <div id="content" role="main">
     <div id="filters-wrapper">
       <label class="dropdown-label">
         <h2><div class="dropdown-btn">
@@ -14,15 +14,11 @@
         </ul>
       </label>
       <label class="dropdown-label">
-        <h2><div class="dropdown-btn">
+        <h2><div class="dropdown-btn" id="landlord-selected">
           Landlord
         </div></h2>
         <input type="checkbox" class="dropdown-input" id="landlord">
-        <ul class="dropdown-menu">
-          <li>Jessica Alba</li>
-          <li>Will Smith</li>
-          <li>Thomas Jefferson</li>
-          <li>Oprah Winfrey</li>
+        <ul class="dropdown-menu" id="landlord-dropdown">
         </ul>
       </label>
       <label class="dropdown-label">
