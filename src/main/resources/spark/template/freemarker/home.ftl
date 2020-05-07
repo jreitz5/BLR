@@ -14,7 +14,7 @@
         </ul>
       </label>
       <label class="dropdown-label">
-        <h2><div class="dropdown-btn">
+        <h2><div class="dropdown-btn" id="landlord-selected">
           Landlord
         </div></h2>
         <input type="checkbox" class="dropdown-input" id="landlord">
