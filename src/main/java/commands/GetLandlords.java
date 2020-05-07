@@ -14,7 +14,16 @@ public class GetLandlords implements Command {
 
     public GetLandlords() {
         try {
-            this.proxy = new DBProxy();
+            this.proxy = new DBProxy("jdbc:sqlite:data/blr.sqlite3");
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+            System.err.println(e.getStackTrace());
+        }
+    }
+
+    public GetLandlords(String url) {
+        try {
+            this.proxy = new DBProxy(url);
         } catch (Exception e) {
             System.err.println(e.getMessage());
             System.err.println(e.getStackTrace());
