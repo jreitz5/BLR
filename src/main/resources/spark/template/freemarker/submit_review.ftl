@@ -10,9 +10,9 @@
         <div class="landlord-row">
           <h2>Landlord:</h2>
           <div class="dropdown">
-            <button class="btn btn-secondary dropdown-toggle" type="button" id="landlord-selected" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff;background-color:#363636;font-size:1vw;">
-              required
-            </button>
+
+            <button class="btn btn-secondary dropdown-toggle" type="button" value="required" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff;background-color:#363636;font-size:1vw;">required</button>
+
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="landlords">
             </div>
           </div>
@@ -23,7 +23,7 @@
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#ffffff;background-color:#363636;font-size:1vw;">
               optional
             </button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton" id="properties">
             </div>
           </div>
         </div>
