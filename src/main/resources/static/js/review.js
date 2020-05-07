@@ -11,6 +11,18 @@ $(document).ready(() => {
             $landlords.append(str);
         }
     });
+
+    const $properties = $("#properties");
+
+
+    let landlordSelected = document.getElementById('landlord-selected');
+    let landlordElement = document.getElementById('landlords');
+    landlordElement.onclick = function(e) {
+        let name = e.target.innerHTML;
+        landlordSelected.innerHTML = name;
+        return;
+    }
+
 });
 
 
