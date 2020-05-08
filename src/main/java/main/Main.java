@@ -118,6 +118,7 @@ public final class Main {
       Spark.post("/login/check", new LoginCheckHandler());
       Spark.get("/create", new CreateHandler(), freeMarker);
       Spark.post("/create/register", new RegisterHandler());
+      Spark.post("/landlord/reviews", new ReviewsHandler());
     }
     
     private static class ReviewsHandler implements Route {
@@ -139,8 +140,10 @@ public final class Main {
         public String handle(Request req, Response res) {
             GetLandlords getter = new GetLandlords();
             GetProperties propers = new GetProperties();
-            List<String> names = getter.getNames();
-            List<List<String>> properties = propers.getNames();
+//            List<String> names = getter.getNames();
+            List<List<String>> names = getter.getAll();
+//            List<List<String>> properties = propers.getNames();
+            List<List<String>> properties = propers.getAll();
 
             Map<String, Object> variables =
                     ImmutableMap.of("landlords", names, "properties", properties);
@@ -154,7 +157,7 @@ public final class Main {
         @Override
         public String handle(Request req, Response res) {
             QueryParamsMap qm = req.queryMap();
-            String name = qm.value("landlord_name");
+            String name = qm.value("landlord");
             String property = qm.value("property");
             int rating = Integer.parseInt(qm.value("rating"));
             String text = qm.value("text");
@@ -167,18 +170,12 @@ public final class Main {
             System.out.println(text);
             System.out.println(email);
 
-//            int land_id = nameToId.get(name);
-//            int addr_id = addrToId.get(property);
-            int land_id = 123;
-            int addr_id = 123;
-
-            System.out.println("what is happening");
+            int land_id = Integer.parseInt(name);
+            int addr_id = Integer.parseInt(property);
 
             SubmitReview submitter = new SubmitReview();
             submitter.addReviewToDB(10000, land_id, addr_id, rating, text, 1,
                     "2020-05-05T07:50:00", 1);
-
-            System.out.println("pls help");
 
             Map<String, Object> variables =
                     ImmutableMap.of("landlord", name, "property", property);

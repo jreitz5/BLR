@@ -78,8 +78,9 @@ public class GetProperties implements Command {
 
     }
 
-    public Map<String, Integer> getMap() {
-        String stat = "SELECT address, property_id FROM properties";
+    public List<List<String>> getAll() {
+        String stat = "SELECT landlord.first_name, landlord.last_name, properties.address, properties.property_id FROM " +
+                "landlord JOIN properties ON properties.landlord_id = landlord.landlord_id;";
         PreparedStatement prep;
         try {
             // Prepare statement
@@ -87,16 +88,26 @@ public class GetProperties implements Command {
 
             ResultSet rs = prep.executeQuery();
 
-            Map<String, Integer> addrToId = new HashMap<>();
+            List<List<String>> props = new ArrayList<>();
             while (rs.next()) {
-                String addr = rs.getString(1);
-                int id = rs.getInt(2);
-                addrToId.put(addr, id);
+                List<String> single = new ArrayList<>();
+                String name;
+                String f_name = rs.getString(1);
+                String l_name = rs.getString(2);
+                if (f_name.equals("")) {
+                    name = l_name;
+                } else {
+                    name = f_name + " " + l_name;
+                }
+                single.add(name);
+                single.add(rs.getString(3));
+                single.add(Integer.toString(rs.getInt(4)));
+                props.add(single);
             }
             // Close the connections and return the result
             rs.close();
             prep.close();
-            return addrToId;
+            return props;
         } catch (SQLException e) {
             System.out.println("ERROR: Failed to insert new user into database. " + e.getMessage());
             return null;

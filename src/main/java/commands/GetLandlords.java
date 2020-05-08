@@ -67,7 +67,7 @@ public class GetLandlords implements Command {
 
     }
 
-    public Map<String, Integer> getMap() {
+    public List<List<String>> getAll() {
         String stat = "SELECT landlord_id, first_name, last_name FROM landlord";
         PreparedStatement prep;
         try {
@@ -76,16 +76,19 @@ public class GetLandlords implements Command {
 
             ResultSet rs = prep.executeQuery();
 
-            Map<String, Integer> nameToId = new HashMap<>();
+            List<List<String>> allData = new ArrayList<>();
             while (rs.next()) {
-                int id = rs.getInt(1);
+                List<String> landlord = new ArrayList<>();
+                String id = Integer.toString(rs.getInt(1));
                 String name = rs.getString(2) + " " + rs.getString(3);
-                nameToId.put(name, id);
+                landlord.add(name);
+                landlord.add(id);
+                allData.add(landlord);
             }
             // Close the connections and return the result
             rs.close();
             prep.close();
-            return nameToId;
+            return allData;
         } catch (SQLException e) {
             System.out.println("ERROR: Failed to insert new user into database. " + e.getMessage());
             return null;

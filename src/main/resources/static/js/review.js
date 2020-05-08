@@ -11,8 +11,9 @@ $(document).ready(() => {
         const response = JSON.parse(jsonResponse);
         properties_list = response.properties;
         for (let i = 0, len = response.landlords.length; i < len; i++) {
-            const landlord = response.landlords[i];
-            const str = "<div class=\"dropdown-item\">" +
+            const landlord = response.landlords[i][0];
+            const id_val = response.landlords[i][1];
+            const str = "<div class=\"dropdown-item\" value="+ id_val + ">" +
                 landlord + "</div>";
             $landlords.append(str);
         }
@@ -25,7 +26,9 @@ $(document).ready(() => {
 
     landlordElement.onclick = function(e) {
         let name = e.target.innerHTML;
+        let id = e.target.getAttribute('value');
         landlordSelected.innerHTML = name;
+        landlordSelected.setAttribute('value', id);
         propertiesSelected.innerHTML = "optional";
         return;
     }   
@@ -35,9 +38,9 @@ $(document).ready(() => {
         for (let i = 0;  i < properties_list.length; i++) {
             let land_name = properties_list[i][0];
             let prop_name = properties_list[i][1];
-
+            let id_val = properties_list[i][2];
             if (landlordVal === land_name) {
-                const stringy = "<div class=\"dropdown-item\">" +
+                const stringy = "<div class=\"dropdown-item\"value="+ id_val + ">" +
                     prop_name + "</div>";
                 $properties.append(stringy);
             }
@@ -46,7 +49,9 @@ $(document).ready(() => {
 
     propertiesElement.onclick = function(e) {
         let name = e.target.innerHTML;
+        let id = e.target.getAttribute('value');
         propertiesSelected.innerHTML = name;
+        propertiesSelected.setAttribute('value', id);
         return;
     };
 });
@@ -99,8 +104,8 @@ function fone(){
 
 function submitReview() {
     const elements = {
-        landlord_name:$("#landlord-selected").text(),
-        property:$("#property-selected").text(),
+        landlord:$("#landlord-selected").val(),
+        property:$("#property-selected").val(),
         rating:rating,
         text:$("#review-text").val(),
         email:user_email
