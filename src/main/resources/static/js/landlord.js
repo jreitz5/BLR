@@ -32,9 +32,12 @@ $(document).ready( () => {
 
 				ratings.push(parseInt(reviewObj.rating));
 
-				if(!properties.includes(reviewObj.address)){
-					properties.push(reviewObj.address);
+				if(reviewObj.address !== null){
+					if(!properties.includes(reviewObj.address)){
+						properties.push(reviewObj.address);
+					}	
 				}
+
 				
 			}
 		}
