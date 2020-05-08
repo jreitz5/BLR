@@ -97,7 +97,7 @@ public final class Main {
       Spark.port(port);
       Spark.externalStaticFileLocation("src/main/resources/static");
       Spark.exception(Exception.class, new ExceptionPrinter());
-      Spark.ui.xXssProtection
+      //Spark.ui.xXssProtection
       FreeMarkerEngine freeMarker = createEngine();
 
       Spark.get("/", new FrontHandler(), freeMarker);
@@ -115,6 +115,7 @@ public final class Main {
       Spark.post("/login/check", new LoginCheckHandler());
       Spark.get("/create", new CreateHandler(), freeMarker);
       Spark.post("/create/register", new RegisterHandler());
+      Spark.post("/landlord/reviews", new ReviewsHandler());
     }
     
     private static class ReviewsHandler implements Route {

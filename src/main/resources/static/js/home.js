@@ -170,11 +170,17 @@ function determineStars(num) {
 	}
 }
 
+function toLandlord(){
+	let text = $(event.target).text();
+	let url = window.location.href;
+	document.location.href = "http://localhost:4567/landlord?name=" + encodeURIComponent(text);
+}
+
 const generateReviewHTML = function(landlordName, review, stars) {
 	const str = "<div class=\"landlord\">"
 			+ "<img src=\"../images/landlordicon.png\" alt=\"landlord icon\" class=\"landlord-icon\">"
 			+ "<div class=\"landlord-content-wrapper\">"
-			+ "<h3>" + landlordName + "</h3>"
+			+ "<h3 onclick=\"toLandlord()\">" + landlordName + "</h3>"
 			+ "<div class=\"rating\">" + stars + "</div>"
 			+ "<img src=\"../images/quotation.png\" alt=\"opening quotation mark\" class=\"quotation\">"
 			+ "<div class=\"comment-wrapper\">"
