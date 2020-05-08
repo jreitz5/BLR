@@ -9,6 +9,8 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
+import java.security.MessageDigest;
+import java.security.MessageDigestSpi;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
@@ -41,6 +43,7 @@ public final class Main {
     private static final int DEFAULT_PORT = 4567;
     private static final Gson GSON = new Gson();
     private static final String CLIENT_ID = "1054214273797-fgvbormba22a5hl3fs8ini4p6b3odl27.apps.googleusercontent.com";
+    private static MessageDigest md;
 
     /**
      * The initial method called when execution begins.
@@ -68,12 +71,13 @@ public final class Main {
             runSparkServer((int) options.valueOf("port"));
         }
 
+        try {
+            md = MessageDigest.getInstance("SHA-256");
+        } catch (Exception e) {
+            System.err.println(e.getMessage());
+        }
+
         REPL repl = new REPL();
-
-        // Register REPL commands here.
-//        repl.registerCommand(new RegisterUser());
-//        repl.registerCommand(new GetUser());
-
         repl.runREPL();
     }
     
@@ -97,7 +101,6 @@ public final class Main {
       Spark.port(port);
       Spark.externalStaticFileLocation("src/main/resources/static");
       Spark.exception(Exception.class, new ExceptionPrinter());
-      Spark.ui.xXssProtection
       FreeMarkerEngine freeMarker = createEngine();
 
       Spark.get("/", new FrontHandler(), freeMarker);
@@ -131,7 +134,7 @@ public final class Main {
       }
     }
 
-    private class DataHandler implements Route {
+    private static class DataHandler implements Route {
         @Override
         public String handle(Request req, Response res) {
             GetLandlords getter = new GetLandlords();
@@ -146,7 +149,8 @@ public final class Main {
         }
     }
 
-    private class SubmitHandler implements Route {
+    private static class SubmitHandler implements Route {
+
         @Override
         public String handle(Request req, Response res) {
             QueryParamsMap qm = req.queryMap();
@@ -162,6 +166,19 @@ public final class Main {
             System.out.println(rating);
             System.out.println(text);
             System.out.println(email);
+
+//            int land_id = nameToId.get(name);
+//            int addr_id = addrToId.get(property);
+            int land_id = 123;
+            int addr_id = 123;
+
+            System.out.println("what is happening");
+
+            SubmitReview submitter = new SubmitReview();
+            submitter.addReviewToDB(10000, land_id, addr_id, rating, text, 1,
+                    "2020-05-05T07:50:00", 1);
+
+            System.out.println("pls help");
 
             Map<String, Object> variables =
                     ImmutableMap.of("landlord", name, "property", property);
@@ -235,6 +252,10 @@ public final class Main {
             QueryParamsMap qm = req.queryMap();
 
             String email = qm.value("email");
+            String pass = qm.value("pwd");
+            byte[] bytes = pass.getBytes();
+            byte[] hash = md.digest(bytes);
+            String result = new String(hash);
 
             GetUser getter = new GetUser();
 
@@ -242,10 +263,10 @@ public final class Main {
 
             Map<String, Object> variables;
 
-            if (info == null) {
-                variables = ImmutableMap.of("success", "no");
-            } else {
+            if (result.equals(info.get(2))) {
                 variables = ImmutableMap.of("success", "yes");
+            } else {
+                variables = ImmutableMap.of("success", "no");
             }
 
             return GSON.toJson(variables);

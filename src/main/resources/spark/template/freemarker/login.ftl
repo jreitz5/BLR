@@ -12,13 +12,11 @@
 
       <form>
           <textarea class="login-text" placeholder="email" id="email"></textarea>
-          <div class="login-title-2 gray-text">
-              Enter your brown.edu email address
-          </div>
-          <textarea class="login-text" placeholder="email" id="password"></textarea>
-          <div class="login-title-2 gray-text">
-              Enter your brown.edu email address
-          </div>
+<#--          <div class="login-title-2 gray-text">-->
+<#--              Enter your brown.edu email address-->
+<#--          </div>-->
+          <input class="login-text" type="password" placeholder="password" id="password"></input>
+
           <div class="login-title-2 gray-text" id="check-response">
           </div>
         <div class="submit-row">

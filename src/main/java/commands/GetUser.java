@@ -30,7 +30,7 @@ public class GetUser implements Command {
     }
 
     public List<String> fromEmail(String email) {
-        String stat = "SELECT first_name, last_name, admin FROM users WHERE email = ?;";
+        String stat = "SELECT first_name, last_name, admin, hash FROM users WHERE email = ?;";
         PreparedStatement prep;
         try {
             // Prepare statement
@@ -45,6 +45,7 @@ public class GetUser implements Command {
                 String name = rs.getString(1) + " " + rs.getString(2);
                 user.add(name);
                 user.add(Integer.toString(rs.getInt(3)));
+                user.add(rs.getString(4));
             }
             if (user.size() < 1) {
                 return null;

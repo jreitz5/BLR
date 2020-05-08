@@ -57,6 +57,8 @@ public class SubmitReview implements Command {
             prep.setString(7, date);
             prep.setInt(8, approved);
 
+            System.out.println("made it here!!!");
+
             prep.executeUpdate();
 
             prep.close();

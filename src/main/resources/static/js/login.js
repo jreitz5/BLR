@@ -3,7 +3,8 @@ let user_email;
 function signin() {
 
     const elements = {
-        email:$("#email").val()
+        email:$("#email").val(),
+        pwd:$("#password").val()
     };
 
     let checker = document.getElementById('check-response');

@@ -6,7 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class GetProperties implements Command {
 
@@ -69,6 +71,32 @@ public class GetProperties implements Command {
             rs.close();
             prep.close();
             return props;
+        } catch (SQLException e) {
+            System.out.println("ERROR: Failed to insert new user into database. " + e.getMessage());
+            return null;
+        }
+
+    }
+
+    public Map<String, Integer> getMap() {
+        String stat = "SELECT address, property_id FROM properties";
+        PreparedStatement prep;
+        try {
+            // Prepare statement
+            prep = this.proxy.getConnection().prepareStatement(stat);
+
+            ResultSet rs = prep.executeQuery();
+
+            Map<String, Integer> addrToId = new HashMap<>();
+            while (rs.next()) {
+                String addr = rs.getString(1);
+                int id = rs.getInt(2);
+                addrToId.put(addr, id);
+            }
+            // Close the connections and return the result
+            rs.close();
+            prep.close();
+            return addrToId;
         } catch (SQLException e) {
             System.out.println("ERROR: Failed to insert new user into database. " + e.getMessage());
             return null;
