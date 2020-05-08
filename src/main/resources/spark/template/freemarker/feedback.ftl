@@ -31,12 +31,13 @@
             </label><br>
         </div>
         <div class="submit-row">
-            <button class="submit-button" style="color:#ffffff;background-color:#363636;font-size:1.5vw;width:8vw;height:5vh;border-radius:10px;">Submit</button>
+            <button class="submit-button" onclick="submitFeedback()" style="color:#ffffff;background-color:#363636;font-size:1.5vw;width:8vw;height:5vh;border-radius:10px;">Submit</button>
           </div>
       </form>
     </div>
   </div>
 </div>
 </div>
+<script src="js/feedback.js"></script>
 </#assign>
 <#include "main.ftl">

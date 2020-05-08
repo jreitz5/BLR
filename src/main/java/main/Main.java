@@ -108,6 +108,7 @@ public final class Main {
       Spark.post("/home/reviews", new ReviewsHandler());
       Spark.get("/about", new AboutHandler(), freeMarker);
       Spark.get("/feedback", new FeedbackHandler(), freeMarker);
+      Spark.post("/feedback/submit", new SubmitFeedbackHandler());
       Spark.get("/landlord", new LandlordHandler(), freeMarker);
       Spark.get("/login", new LoginHandler(), freeMarker);
       Spark.get("/privacy", new PrivacyHandler(), freeMarker);
@@ -119,6 +120,29 @@ public final class Main {
       Spark.get("/create", new CreateHandler(), freeMarker);
       Spark.post("/create/register", new RegisterHandler());
       Spark.post("/landlord/reviews", new ReviewsHandler());
+    }
+
+    private static class SubmitFeedbackHandler implements Route {
+        @Override
+        public String handle(Request req, Response res) {
+            QueryParamsMap qm = req.queryMap();
+            String landlord = qm.value("landlord");
+            String property = qm.value("property");
+            String additional = qm.value("additional");
+
+            System.out.println("data inc: ");
+            System.out.println(landlord);
+            System.out.println(property);
+            System.out.println(additional);
+
+            // For testing
+            SubmitFeedback feedback = new SubmitFeedback();
+            feedback.submitFeedback(landlord, property, additional);
+
+            Map<String, Object> variables = ImmutableMap.of("doesnt-matter",
+                    "foo");
+            return GSON.toJson(variables);
+        }
     }
     
     private static class ReviewsHandler implements Route {
@@ -175,7 +199,7 @@ public final class Main {
 
             SubmitReview submitter = new SubmitReview();
             submitter.addReviewToDB(10000, land_id, addr_id, rating, text, 1,
-                    "2020-05-05T07:50:00", 1);
+                    "2020-05-08T01:45:00", 1);
 
             Map<String, Object> variables =
                     ImmutableMap.of("landlord", name, "property", property);

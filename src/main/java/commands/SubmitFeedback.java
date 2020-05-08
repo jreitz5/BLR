@@ -53,7 +53,7 @@ public class SubmitFeedback implements Command{
 
             prep.close();
         } catch (SQLException e) {
-            System.out.println("ERROR: Failed to insert new review into database. " + e.getMessage());
+            System.out.println("ERROR: Failed to insert new feedback into database. " + e.getMessage());
         }
     }
 }
