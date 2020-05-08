@@ -97,7 +97,7 @@ public final class Main {
       Spark.port(port);
       Spark.externalStaticFileLocation("src/main/resources/static");
       Spark.exception(Exception.class, new ExceptionPrinter());
-
+      Spark.ui.xXssProtection
       FreeMarkerEngine freeMarker = createEngine();
 
       Spark.get("/", new FrontHandler(), freeMarker);
@@ -111,6 +111,7 @@ public final class Main {
       Spark.get("/profile", new ProfileHandler(), freeMarker);
       Spark.get("/submit_review", new SubmitReviewHandler(), freeMarker);
       Spark.post("/submit_review/data", new DataHandler());
+      Spark.post("/submit_review/submit", new SubmitHandler());
       Spark.post("/login/check", new LoginCheckHandler());
       Spark.get("/create", new CreateHandler(), freeMarker);
       Spark.post("/create/register", new RegisterHandler());
@@ -140,6 +141,30 @@ public final class Main {
 
             Map<String, Object> variables =
                     ImmutableMap.of("landlords", names, "properties", properties);
+
+            return GSON.toJson(variables);
+        }
+    }
+
+    private class SubmitHandler implements Route {
+        @Override
+        public String handle(Request req, Response res) {
+            QueryParamsMap qm = req.queryMap();
+            String name = qm.value("landlord_name");
+            String property = qm.value("property");
+            int rating = Integer.parseInt(qm.value("rating"));
+            String text = qm.value("text");
+            String email = qm.value("email");
+
+            System.out.println("DATA!!!!: ");
+            System.out.println(name);
+            System.out.println(property);
+            System.out.println(rating);
+            System.out.println(text);
+            System.out.println(email);
+
+            Map<String, Object> variables =
+                    ImmutableMap.of("landlord", name, "property", property);
 
             return GSON.toJson(variables);
         }

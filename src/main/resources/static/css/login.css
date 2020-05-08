@@ -93,3 +93,23 @@ body {
   border-radius: 5px;
   border-radius: 5px;
 }
+
+#home-button {
+  display: none;
+}
+
+#about-button {
+  display: none;
+}
+
+#feedback-button {
+  display: none;
+}
+
+#review-button {
+  display: none;
+}
+
+#logout-button {
+  display: none;
+}

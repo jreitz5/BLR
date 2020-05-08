@@ -12,7 +12,6 @@ $(document).ready(() => {
         properties_list = response.properties;
         for (let i = 0, len = response.landlords.length; i < len; i++) {
             const landlord = response.landlords[i];
-            console.log(response.landlords[i]);
             const str = "<div class=\"dropdown-item\">" +
                 landlord + "</div>";
             $landlords.append(str);
@@ -32,8 +31,6 @@ $(document).ready(() => {
     }   
      $property_selector.click(function() {
         let landlordVal = $landlord_selector.text();
-        console.log("Selected landlord: " + landlordVal);
-        console.log(properties_list);
         $properties.empty();
         for (let i = 0;  i < properties_list.length; i++) {
             let land_name = properties_list[i][0];
@@ -98,4 +95,20 @@ function ftwo(){
 function fone(){
     rating = 1;
     refreshStars(rating);
+}
+
+function submitReview() {
+    const elements = {
+        landlord_name:$("#landlord-selected").text(),
+        property:$("#property-selected").text(),
+        rating:rating,
+        text:$("#review-text").val(),
+        email:user_email
+    };
+
+
+    $.post("/submit_review/submit", elements, jsonResponse => {
+        const response = JSON.parse(jsonResponse);
+        console.log(response);
+    });
 }

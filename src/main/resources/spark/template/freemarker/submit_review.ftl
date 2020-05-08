@@ -37,14 +37,14 @@
             <span onclick="fone()" id="one">☆</span>
           </div>
         </div>
-        <textarea class="review-text" placeholder="Type your review here!" aria-label="Type your review here!" style="font-size:1.5vw;height:25vh;"></textarea>
+        <textarea class="review-text" id="review-text" placeholder="Type your review here!" aria-label="Type your review here!" style="font-size:1.5vw;height:25vh;"></textarea>
         <div class="check-row">
           <label for="anonymous">
             <input type="checkbox" id="anonymous" name="anonymous" value="anonymous" aria-label="Checkbox to make me anonymous">Make me anonymous
           </label><br>
         </div>
         <div class="submit-row">
-          <button class="submit-button" style="color:#ffffff;background-color:#363636;font-size:1.5vw;width:8vw;height:5vh;border-radius:10px;">Submit</button>
+          <button class="submit-button" onclick="submitReview()" style="color:#ffffff;background-color:#363636;font-size:1.5vw;width:8vw;height:5vh;border-radius:10px;">Submit</button>
         </div>
       </form>
     </div>
